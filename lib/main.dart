@@ -82,6 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Iterable<Widget> _buildPages() {
     final List<Widget> pages = <Widget>[];
+    double pictureHeight = MediaQuery.of(context).size.height * 0.6;
+    double pictureWidth = MediaQuery.of(context).size.width * 0.6;
     for (int index = 0; index < 10; index++) {
       var alignment = Alignment.center.add(new Alignment(
           (selectedIndex.value - index) * _kViewportFraction, 0.0));
@@ -102,8 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-          width: 230.0 * resizeFactor,
-          height: 410.0 * resizeFactor,
+          width: pictureWidth * resizeFactor,
+          height: pictureHeight * resizeFactor,
           child: new GestureDetector(
             onTap: () {
               Navigator
