@@ -1,4 +1,4 @@
-package com.binality.carouseleffect.carouseleffect;
+package com.binality.carousel_effect.carousel_effect;
 
 import android.os.Bundle;
 
