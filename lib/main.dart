@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+  MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -22,17 +22,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final PageController _backgroundPageController = PageController();
-  final PageController _pageController =
-      PageController(viewportFraction: _kViewportFraction);
+  final PageController _pageController = PageController(viewportFraction: _kViewportFraction);
   ValueNotifier<double> selectedIndex = ValueNotifier<double>(0.0);
 
-  bool _handlePageNotification(ScrollNotification notification,
-      PageController leader, PageController follower) {
+  bool _handlePageNotification(
+      ScrollNotification notification, PageController leader, PageController follower) {
     if (notification.depth == 0 && notification is ScrollUpdateNotification) {
-      selectedIndex.value = leader.page;
+      selectedIndex.value = leader.page!;
       if (follower.page != leader.page) {
-        follower.position.jumpToWithoutSettling(leader.position.pixels /
-            _kViewportFraction); // ignore: deprecated_member_use
+        follower.position.jumpToWithoutSettling(
+            leader.position.pixels / _kViewportFraction); // ignore: deprecated_member_use
       }
       setState(() {});
     }
@@ -63,11 +62,11 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Iterable<Widget> _buildBackgroundPages() {
+  List<Widget> _buildBackgroundPages() {
     final List<Widget> backgroundPages = <Widget>[];
     for (int index = 0; index < 10; index++) {
       backgroundPages.add(Container(
-        color: Color(0xB07986CB),
+        color: const Color(0xB07986CB),
         child: Opacity(
           opacity: 0.3,
           child: Image.asset(
@@ -80,21 +79,20 @@ class _MyHomePageState extends State<MyHomePage> {
     return backgroundPages;
   }
 
-  Iterable<Widget> _buildPages() {
+  List<Widget> _buildPages() {
     final List<Widget> pages = <Widget>[];
     double pictureHeight = MediaQuery.of(context).size.height * 0.6;
     double pictureWidth = MediaQuery.of(context).size.width * 0.6;
     for (int index = 0; index < 10; index++) {
-      var alignment = Alignment.center.add(
-          Alignment((selectedIndex.value - index) * _kViewportFraction, 0.0));
-      var resizeFactor =
-          (1 - (((selectedIndex.value - index).abs() * 0.3).clamp(0.0, 1.0)));
+      var alignment =
+          Alignment.center.add(Alignment((selectedIndex.value - index) * _kViewportFraction, 0.0));
+      var resizeFactor = (1 - (((selectedIndex.value - index).abs() * 0.3).clamp(0.0, 1.0)));
       var imageAsset = 'assets/images/img${index + 1}.jpg';
       var image = Image.asset(imageAsset, fit: BoxFit.cover);
       pages.add(Container(
         alignment: alignment,
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             //color: Colors.red[400],
             boxShadow: <BoxShadow>[
               BoxShadow(

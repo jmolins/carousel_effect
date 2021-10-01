@@ -1,19 +1,16 @@
-# Carousel Effect
+# carousel_effect
 
-Zooming Carousel Effect with PageView
+A new Flutter project.
 
-This is an implementation in Flutter of the Carousel in this [Uplabs post](https://www.uplabs.com/posts/carouseleffect). Give a look to the original [android source code](https://github.com/bhaveshjabuvani-credencys/CarouselEffect).
+## Getting Started
 
-The comparison may not be fair because the flutter implementation could be more modular and flexible but these are the numbers:
+This project is a starting point for a Flutter application.
 
-#### Flutter:
+A few resources to get you started if this is your first Flutter project:
 
-1 file
-127 lines (could be way less if not formatted with fmt)
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-#### Android:
-
-5 source files and 9 resource files (not counting images)
-273 lines in source files and 110 in resources
-
-![GifSample](https://github.com/jmolins/carousel_effect/blob/master/carousel_effect.gif?raw=true)
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
